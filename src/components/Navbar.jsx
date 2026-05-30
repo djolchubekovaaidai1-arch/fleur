@@ -8,6 +8,7 @@ import {
 import { GiRose } from 'react-icons/gi'
 import { useCart } from '../context/CartContext'
 import { useFavorites } from '../context/FavoriteContext'
+import fleur from '../../public/fleur.png'
 
 export default function Navbar() {
   const navLink = ({ isActive }) =>
@@ -35,9 +36,9 @@ export default function Navbar() {
           to="/"
           className="flex items-center gap-2"
         >
-          <GiRose className="text-4xl text-accent" />
+         <img src={fleur} alt="Fleur"className="h-20 w-auto object-contain" />
 
-          <div>
+          {/* <div>
             <h1 className="text-3xl font-bold text-accent">
               Fleur
             </h1>
@@ -45,7 +46,7 @@ export default function Navbar() {
             <p className="text-xs text-gray-500 -mt-1">
               Flower Boutique
             </p>
-          </div>
+          </div> */}
         </NavLink>
 
         {/* Menu */}

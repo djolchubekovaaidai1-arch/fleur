@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom'
 import { FaTruck, FaStar, FaArrowRight } from 'react-icons/fa'
 import ProductCard from '../components/ProductCard'
 import products from '../data/products'
-import HeroSlider from '../components/HeroSlider'   
+import HeroSlider from '../components/HeroSlider'
+   
 
 export default function Home() {
     return (

@@ -122,17 +122,12 @@ const Reviews = () => {
           </div>
         </form>
 
-        <div className="relative" style={{ minHeight: Math.max(620, reviews.length * 200) }}>
-          {reviews.map((r, idx) => {
-            const top = idx * 200
-            const translateX = idx % 2 === 1 ? 32 : 0
-            const widthClass = idx === 1 ? 'w-10/12' : 'w-10/12'
-            return (
-              <div key={idx} style={{ top: `${top}px`, transform: `translateX(${translateX}px)` }} className={`absolute left-0 right-0 mx-auto ${widthClass}`}>
-                <ReviewCard {...r} />
-              </div>
-            )
-          })}
+        <div className="space-y-6">
+          {reviews.map((r, idx) => (
+            <div key={idx} className="mx-auto w-full max-w-3xl">
+              <ReviewCard {...r} />
+            </div>
+          ))}
         </div>
       </div>
     </section>

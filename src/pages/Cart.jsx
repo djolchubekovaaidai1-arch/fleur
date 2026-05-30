@@ -22,18 +22,13 @@ export default function Cart() {
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-10">
-
-      <h1 className="text-4xl font-bold mb-8">
-        Корзина
-      </h1>
+      <h1 className="text-4xl font-bold mb-8">Корзина</h1>
 
       <div className="grid gap-8 xl:grid-cols-[1.7fr_0.9fr]">
         <div className="space-y-5">
           {cart.length === 0 ? (
-            <div className="rounded-[32px] bg-white p-10 shadow-green text-center">
-              <p className="text-xl text-gray">
-                В корзине пока нет товаров.
-              </p>
+            <div className="rounded-[32px] bg-white p-8 shadow-green text-center">
+              <p className="text-xl text-gray">В корзине пока нет товаров.</p>
             </div>
           ) : (
             cart.map(item => (
@@ -41,7 +36,7 @@ export default function Cart() {
                 key={item.id}
                 className="rounded-[32px] bg-white p-5 shadow-green flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between"
               >
-                <div className="flex items-center gap-4">
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
                   <img
                     src={item.image}
                     alt={item.title}
@@ -57,7 +52,7 @@ export default function Cart() {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-3 justify-between sm:justify-center">
                   <button
                     onClick={() => decreaseQuantity(item.id)}
                     className="grid h-10 w-10 place-items-center rounded-full border border-accent text-accent transition hover:bg-accent/10"
@@ -99,12 +94,8 @@ export default function Cart() {
 
         <aside className="rounded-[32px] bg-white p-8 shadow-green">
           <div className="mb-8">
-            <p className="text-sm uppercase tracking-[0.25em] text-gray-500">
-              Итого
-            </p>
-            <p className="text-4xl font-semibold text-dark mt-3">
-              {total} сом
-            </p>
+            <p className="text-sm uppercase tracking-[0.25em] text-gray-500">Итого</p>
+            <p className="text-3xl sm:text-4xl font-semibold text-dark mt-3">{total} сом</p>
           </div>
           <button
             onClick={() => navigate('/contacts')}

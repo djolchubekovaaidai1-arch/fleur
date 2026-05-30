@@ -38,7 +38,7 @@ const About = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div className="rounded-3xl bg-white p-6 text-center shadow-lg">
                 <p className="font-serif text-[38px] text-accent font-semibold leading-none">6+</p>
                 <p className="text-[13px] text-gray mt-2 uppercase tracking-wider">лет на рынке</p>
@@ -146,17 +146,17 @@ const About = () => {
             За каждым букетом стоит талантливый флорист, который вкладывает душу в свою работу. Познакомьтесь с нашей командой мастеров.
           </p>
           <div className="flex flex-wrap justify-center gap-8">
-            <div className="w-[220px] text-center">
+            <div className="w-full max-w-[220px] text-center">
               <div className="mx-auto h-[220px] w-[220px] rounded-full border border-accent-200 bg-white shadow-green"></div>
               <h3 className="font-serif text-lg text-accent mt-4 mb-1">Алина</h3>
               <p className="text-[13px] text-gray m-0">Главный флорист, 8 лет опыта</p>
             </div>
-            <div className="w-[220px] text-center">
+            <div className="w-full max-w-[220px] text-center">
               <div className="mx-auto h-[220px] w-[220px] rounded-full border border-accent-200 bg-white shadow-green"></div>
               <h3 className="font-serif text-lg text-accent mt-4 mb-1">Максим</h3>
               <p className="text-[13px] text-gray m-0">Флорист-дизайнер, 5 лет опыта</p>
             </div>
-            <div className="w-[220px] text-center">
+            <div className="w-full max-w-[220px] text-center">
               <div className="mx-auto h-[220px] w-[220px] rounded-full border border-accent-200 bg-white shadow-green"></div>
               <h3 className="font-serif text-lg text-accent mt-4 mb-1">Екатерина</h3>
               <p className="text-[13px] text-gray m-0">Флорист, 3 года опыта</p>

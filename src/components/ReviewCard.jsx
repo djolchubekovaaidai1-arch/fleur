@@ -23,7 +23,7 @@ const StarRow = ({ rating = 5 }) => {
 
 const ReviewCard = ({ rating = 5, text = '', author = '', className = '' }) => {
   return (
-    <div className={`absolute left-0 right-0 mx-auto w-10/12 bg-white/90 rounded-xl shadow-xl p-7 backdrop-blur-sm ${className}`.trim()}>
+    <div className={`w-full bg-white/90 rounded-xl shadow-xl p-7 backdrop-blur-sm ${className}`.trim()}>
       <div className="flex flex-col">
         <div className="flex justify-end">
           <StarRow rating={rating} />

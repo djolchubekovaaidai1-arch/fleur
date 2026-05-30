@@ -10,27 +10,24 @@ export default function Home() {
         <main className="bg-cream">
             <HeroSlider />
             {/* HERO */}
-            <section className="max-w-7xl mx-auto px-6 py-20">
-
-                <div className="grid lg:grid-cols-2 gap-16 items-center">
-
+            <section className="max-w-7xl mx-auto px-6 py-16 sm:py-20">
+                <div className="grid gap-12 items-center lg:grid-cols-2">
                     <div>
-                        <p className="uppercase tracking-[8px] text-gray-500 mb-4">
+                        <p className="uppercase tracking-[0.35em] text-gray-500 mb-4 text-sm sm:text-base">
                             Flower Boutique
                         </p>
 
-                        <h1 className="text-7xl font-light leading-none">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-tight">
                             FLEUR
                         </h1>
 
-                        <p className="mt-8 text-lg text-gray-600 max-w-lg leading-8">
-                            Свежие букеты, воздушные шары и подарки для самых
-                            важных моментов вашей жизни.
+                        <p className="mt-8 text-base sm:text-lg text-gray-600 max-w-xl leading-8">
+                            Свежие букеты, воздушные шары и подарки для самых важных моментов вашей жизни.
                         </p>
 
                         <Link
                             to="/catalog"
-                            className="inline-flex items-center gap-3 mt-10 border border-black px-8 py-4 hover:bg-black hover:text-white transition"
+                            className="inline-flex items-center gap-3 mt-10 border border-black px-6 py-3 sm:px-8 sm:py-4 hover:bg-black hover:text-white transition text-sm sm:text-base"
                         >
                             Смотреть каталог
                             <FaArrowRight />
@@ -41,119 +38,82 @@ export default function Home() {
                         <img
                             src="https://i.pinimg.com/736x/fc/35/22/fc3522c9b098cb11e3cd775db0d89f49.jpg"
                             alt="Flowers"
-                            className="w-full h-[700px] object-cover rounded-sm"
+                            className="w-full h-72 sm:h-96 md:h-[520px] lg:h-[600px] object-cover rounded-3xl"
                         />
                     </div>
-
                 </div>
-
             </section>
 
             {/* ABOUT */}
-            <section className="max-w-7xl mx-auto px-6 py-24">
-
-                <h2 className="text-6xl font-light mb-16">
+            <section className="max-w-7xl mx-auto px-6 py-16 sm:py-20">
+                <h2 className="text-4xl sm:text-5xl md:text-6xl font-light mb-10">
                     ABOUT US
                 </h2>
 
-                <div className="grid lg:grid-cols-2 gap-12 items-center">
-
+                <div className="grid gap-10 lg:grid-cols-2 items-center">
                     <div>
-                        <p className="text-gray-600 leading-8 text-lg">
-                            Fleur — это цветочный бутик, вдохновлённый красотой
-                            природы. Мы создаём букеты, которые помогают
-                            выразить чувства и сделать любой день особенным.
+                        <p className="text-gray-600 leading-8 text-base sm:text-lg">
+                            Fleur — это цветочный бутик, вдохновлённый красотой природы. Мы создаём букеты, которые помогают выразить чувства и сделать любой день особенным.
                         </p>
 
-                        <p className="text-gray-600 leading-8 text-lg mt-6">
-                            Каждая композиция собирается вручную из свежих
-                            цветов с вниманием к каждой детали.
+                        <p className="text-gray-600 leading-8 text-base sm:text-lg mt-6">
+                            Каждая композиция собирается вручную из свежих цветов с вниманием к каждой детали.
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-5">
-
+                    <div className="grid gap-5 sm:grid-cols-2">
                         <img
                             src="https://i.pinimg.com/736x/90/49/00/904900eeac06d213d5a34db384304e37.jpg"
                             alt=""
-                            className="h-72 w-full object-cover"
+                            className="h-64 w-full object-cover rounded-3xl"
                         />
 
                         <img
                             src="https://i.pinimg.com/736x/4c/fd/54/4cfd547a05362fadbdd0438ca0648d6f.jpg"
                             alt=""
-                            className="h-72 w-full object-cover mt-10"
+                            className="h-64 w-full object-cover rounded-3xl"
                         />
-
                     </div>
-
                 </div>
-
             </section>
 
             {/* BESTSELLERS */}
-            <section className="max-w-7xl mx-auto px-6 py-24">
-
-                <h2 className="text-6xl font-light mb-16">
+            <section className="max-w-7xl mx-auto px-6 py-16 sm:py-20">
+                <h2 className="text-4xl sm:text-5xl md:text-6xl font-light mb-10">
                     BESTSELLERS
                 </h2>
 
-                <div className="grid lg:grid-cols-2 gap-10">
-
-                    <div className="group">
-
+                <div className="grid gap-8 lg:grid-cols-2">
+                    <div className="group overflow-hidden rounded-3xl bg-white shadow-green">
                         <img
                             src="https://i.pinimg.com/736x/fc/35/22/fc3522c9b098cb11e3cd775db0d89f49.jpg"
                             alt=""
-                            className="h-[550px] w-full object-cover"
+                            className="h-72 sm:h-[420px] w-full object-cover transition duration-500 group-hover:scale-105"
                         />
-
-                        <div className="mt-5 flex justify-between items-center">
-
-                            <div>
-                                <h3 className="text-2xl">
-                                    Розовый букет
-                                </h3>
-
-                                <p className="text-gray-500">
-                                    4200 сом
-                                </p>
-                            </div>
-
+                        <div className="p-6">
+                            <h3 className="text-2xl sm:text-3xl">Розовый букет</h3>
+                            <p className="text-gray-500 mt-3">4200 сом</p>
                         </div>
-
                     </div>
 
-                    <div className="group">
-
+                    <div className="group overflow-hidden rounded-3xl bg-white shadow-green">
                         <img
                             src="https://i.pinimg.com/736x/9d/2a/f5/9d2af5342b4dec2c0bbf52fd85525bf9.jpg"
                             alt=""
-                            className="h-[550px] w-full object-cover"
+                            className="h-72 sm:h-[420px] w-full object-cover transition duration-500 group-hover:scale-105"
                         />
-
-                        <div className="mt-5">
-
-                            <h3 className="text-2xl">
-                                Букет пионов
-                            </h3>
-
-                            <p className="text-gray-500">
-                                3500 сом
-                            </p>
-
+                        <div className="p-6">
+                            <h3 className="text-2xl sm:text-3xl">Букет пионов</h3>
+                            <p className="text-gray-500 mt-3">3500 сом</p>
                         </div>
-
                     </div>
-
                 </div>
-
             </section>
 
             {/* CATALOG PREVIEW */}
             <section className="max-w-7xl mx-auto px-6 py-24">
 
-                <h2 className="text-6xl font-light mb-16">
+                <h2 className="text-4xl sm:text-5xl md:text-6xl font-light mb-16">
                     CATALOG
                 </h2>
 
@@ -168,47 +128,34 @@ export default function Home() {
             </section>
 
             {/* DELIVERY */}
-            <section className="max-w-7xl mx-auto px-6 py-24">
-
-                <h2 className="text-6xl font-light mb-16">
+            <section className="max-w-7xl mx-auto px-6 py-16 sm:py-20">
+                <h2 className="text-4xl sm:text-5xl md:text-6xl font-light mb-10">
                     DELIVERY
                 </h2>
 
-                <div className="grid lg:grid-cols-2 gap-10">
-
-                    <div className="bg-white p-10">
-
-                        <FaTruck className="text-4xl mb-6" />
-
-                        <h3 className="text-3xl mb-4">
-                            Быстрая доставка
-                        </h3>
-
+                <div className="grid gap-10 lg:grid-cols-2">
+                    <div className="bg-white p-8 sm:p-10 rounded-3xl shadow-green">
+                        <FaTruck className="text-4xl mb-6 text-accent" />
+                        <h3 className="text-3xl mb-4">Быстрая доставка</h3>
                         <p className="text-gray-600 leading-8">
-                            Доставляем цветы по Бишкеку в день заказа.
-                            Свежесть и аккуратность гарантированы.
+                            Доставляем цветы по Бишкеку в день заказа. Свежесть и аккуратность гарантированы.
                         </p>
-
                     </div>
 
                     <div>
-
                         <iframe
                             title="map"
                             src="https://maps.google.com/maps?q=Bishkek&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                            className="w-full h-[350px]"
+                            className="w-full h-72 sm:h-[350px] rounded-3xl border border-accent-200"
                         />
-
                     </div>
-
                 </div>
-
             </section>
 
             {/* REVIEWS */}
             <section className="max-w-7xl mx-auto px-6 py-24">
 
-                <h2 className="text-6xl font-light mb-16">
+                <h2 className="text-4xl sm:text-5xl md:text-6xl font-light mb-16">
                     REVIEWS
                 </h2>
 

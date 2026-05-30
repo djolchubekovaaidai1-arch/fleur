@@ -6,16 +6,16 @@ export default function NotFound() {
     <div className="min-h-screen bg-[#F9F3E8] flex items-center justify-center px-6 overflow-hidden">
 
       {/* Декоративные круги */}
-      <div className="absolute top-20 left-20 w-72 h-72 bg-[#4A7C59]/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-20 w-80 h-80 bg-[#4A7C59]/10 rounded-full blur-3xl" />
+      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-52 h-52 bg-[#4A7C59]/10 rounded-full blur-3xl sm:top-20 sm:left-20 sm:-translate-x-0 sm:w-72 sm:h-72" />
+      <div className="absolute bottom-10 right-1/2 translate-x-1/2 w-52 h-52 bg-[#4A7C59]/10 rounded-full blur-3xl sm:bottom-20 sm:right-20 sm:translate-x-0 sm:w-80 sm:h-80" />
 
-      <div className="relative text-center max-w-3xl">
+      <div className="relative text-center max-w-3xl px-4 sm:px-0">
 
         <p className="uppercase tracking-[12px] text-[#4A7C59] mb-6">
           Fleur
         </p>
 
-        <h1 className="title-font text-[220px] md:text-[280px] leading-none text-[#4A7C59]">
+        <h1 className="title-font text-[120px] sm:text-[180px] md:text-[220px] leading-none text-[#4A7C59]">
           404
         </h1>
 

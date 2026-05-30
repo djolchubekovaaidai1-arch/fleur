@@ -94,8 +94,7 @@ export default function Profile() {
             <div className="-mt-24">
               <img
                 src={user.photoURL}
-                alt="avatar"
-                className="w-44 h-44 rounded-full border-8 border-white object-cover shadow-lg"
+                className="profile-avatar w-44 h-44 rounded-full"
               />
             </div>
 

@@ -18,7 +18,7 @@ const About = () => {
         <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] items-center mb-20">
           <div className="overflow-hidden rounded-[40px] bg-white shadow-green">
             <img
-              src="https://i.pinimg.com/originals/0c/12/a7/0c12a7253a2d9ec2a309321b3295a377.jpg"
+              src="https://i.pinimg.com/1200x/c4/b9/30/c4b9304338d2501b4f72a58baa1bd690.jpg"
               alt="Магазин Flore"
               className="w-full h-full min-h-[420px] object-cover"
             />

@@ -12,7 +12,7 @@ export default function Sidebar() {
     'flex items-center gap-3 p-3 rounded-xl hover:bg-accent-50 transition'
 
   return (
-    <aside className="w-64 bg-white shadow-lg rounded-2xl p-4">
+    <aside className="mobile-hide">
 
       <NavLink className={item} to="/">
         <FaHome />

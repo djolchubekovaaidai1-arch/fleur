@@ -59,7 +59,47 @@ const products = [
     price: 2500,
     image:
       'https://i.pinimg.com/736x/25/ec/48/25ec487e5a740a85522e29e17ebe670a.jpg'
-  }
+  },
+  {
+    id: 8,
+    title: 'Букет гортензий',
+    category: 'flowers',
+    price: 2500,
+    image:
+      'https://i.pinimg.com/736x/b7/a1/88/b7a188e21ac240a9b02310741075afee.jpg'
+  },
+  {
+    id: 9,
+    title: 'Букет тюльпанов',
+    category: 'flowers',
+    price: 2500,
+    image:
+      'https://i.pinimg.com/736x/26/50/70/2650708295f9ffc442cfa34d8d42fdf8.jpg'
+  },
+  {
+    id: 10,
+    title: 'Букет хризантем',
+    category: 'flowers',
+    price: 2500,
+    image:
+      'https://i.pinimg.com/736x/0d/2a/6d/0d2a6dacb9a8d6fc6754316474892572.jpg'
+  },
+  {
+    id: 11,
+    title: 'Букет сирени',
+    category: 'flowers',
+    price: 2500,
+    image:
+      'https://i.pinimg.com/736x/95/5e/f6/955ef6fa4c94493900aff995ea51d295.jpg'
+  },
+  {
+    id: 12,
+    title: 'Букет кустовых роз',
+    category: 'flowers',
+    price: 2500,
+    image:
+      'https://i.pinimg.com/1200x/4e/ac/6b/4eac6b59c512bb403a26053fb38953c8.jpg'
+  },
 ]
 
 export default products

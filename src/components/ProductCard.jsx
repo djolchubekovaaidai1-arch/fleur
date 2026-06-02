@@ -1,6 +1,7 @@
 import {
   FaHeart,
-  FaShoppingCart
+  FaShoppingCart,
+  FaPlus
 } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 
@@ -11,18 +12,20 @@ export default function ProductCard({
   product
 }) {
   const navigate = useNavigate()
+
   const { cart, addToCart } = useCart()
   const { favorites, addToFavorites } = useFavorites()
 
   const inFavorites = favorites.some(
     item => item.id === product.id
   )
+
   const inCart = cart.some(
     item => item.id === product.id
   )
 
   return (
-    <div className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition">
+    <div className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition flex flex-col h-full">
 
       <div className="relative">
         <img
@@ -44,34 +47,50 @@ export default function ProductCard({
         </button>
       </div>
 
-      <div className="p-4 text-center">
-        <h3 className="font-medium text-lg truncate">
+      <div className="p-4 text-center flex flex-col flex-1">
+
+        <h3 className="font-medium text-lg">
           {product.title}
         </h3>
 
         <div className="mt-3 flex flex-col items-center gap-2 sm:flex-row sm:justify-center sm:gap-4">
-          <p className="text-xs text-gray-500 uppercase tracking-wider max-w-full sm:max-w-[65%]">
+          <p className="text-xs text-gray-500 uppercase tracking-wider">
             БУКЕТ "{product.title.toUpperCase()}"
           </p>
-          <p className="text-accent font-bold">{product.price} сом</p>
+
+          <p className="text-accent font-bold">
+            {product.price} сом
+          </p>
         </div>
 
-        <div className="mt-5 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+        <div className="mt-auto pt-5 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+
           <button
-            onClick={() => navigate('/catalog')}
+           onClick={() => navigate(`/product/${product.id}`)}
             className="w-full sm:w-auto px-4 py-3 rounded-full text-sm text-gray-700 border border-accent-200 transition hover:bg-accent-50"
           >
             Подробнее
           </button>
 
-          <button
-            onClick={() => addToCart(product)}
-            className="w-full sm:w-auto px-4 py-3 rounded-full flex items-center justify-center gap-2 text-sm bg-accent text-white transition hover:bg-accent/90"
-          >
-            {inCart ? 'Добавить ещё' : 'В корзину'}
-            <FaShoppingCart />
-          </button>
+          {inCart ? (
+            <button
+              onClick={() => addToCart(product)}
+              className="w-12 h-12 rounded-full bg-accent text-white flex items-center justify-center transition hover:bg-accent/90"
+            >
+              <FaPlus />
+            </button>
+          ) : (
+            <button
+              onClick={() => addToCart(product)}
+              className="w-full sm:w-auto px-4 py-3 rounded-full flex items-center justify-center gap-2 text-sm bg-accent text-white transition hover:bg-accent/90"
+            >
+              В корзину
+              <FaShoppingCart />
+            </button>
+          )}
+
         </div>
+
       </div>
 
     </div>

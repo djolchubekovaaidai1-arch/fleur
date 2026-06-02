@@ -16,6 +16,10 @@ import Cart from './pages/Cart'
 import Profile from './pages/Profile'
 import Admin from './pages/Admin'
 import NotFound from './pages/NotFound'
+import ProductDetails from './pages/ProductDetails'
+import Checkout from './pages/Checkout'
+import OrderSuccess from './pages/OrderSuccess'
+import FlowerPanel from './pages/FlowerPanel'
 
 function App() {
   return (
@@ -36,6 +40,13 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/success" element={<OrderSuccess />} />
+        <Route path="/flower-panel" element={<FlowerPanel />} />
+        <Route
+          path="/product/:id"
+          element={<ProductDetails />}
+        />
       </Routes>
 
       <Footer />

@@ -98,8 +98,12 @@ export default function Cart() {
             <p className="text-3xl sm:text-4xl font-semibold text-dark mt-3">{total} сом</p>
           </div>
           <button
-            onClick={() => navigate('/contacts')}
-            className="w-full rounded-full bg-accent px-6 py-4 text-white text-base font-semibold transition hover:bg-accent/90"
+            onClick={() => navigate('/checkout')}
+            disabled={cart.length === 0}
+            className={`w-full rounded-full px-6 py-4 text-base font-semibold transition ${cart.length === 0
+                ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                : 'bg-accent text-white hover:bg-accent/90'
+              }`}
           >
             Оформить заказ
           </button>

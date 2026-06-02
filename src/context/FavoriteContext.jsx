@@ -1,9 +1,47 @@
-import { createContext, useContext, useState } from 'react'
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState
+} from 'react'
+
+import { useAuth } from './AuthContext'
 
 const FavoriteContext = createContext()
 
-export function FavoriteProvider({ children }) {
-  const [favorites, setFavorites] = useState([])
+export function FavoriteProvider({
+  children
+}) {
+  const { user } = useAuth()
+
+  const [favorites, setFavorites] =
+    useState([])
+
+  useEffect(() => {
+    if (user) {
+      const savedFavorites =
+        localStorage.getItem(
+          `favorites-${user.uid}`
+        )
+
+      if (savedFavorites) {
+        setFavorites(
+          JSON.parse(savedFavorites)
+        )
+      }
+    } else {
+      setFavorites([])
+    }
+  }, [user])
+
+  useEffect(() => {
+    if (user) {
+      localStorage.setItem(
+        `favorites-${user.uid}`,
+        JSON.stringify(favorites)
+      )
+    }
+  }, [favorites, user])
 
   const addToFavorites = product => {
     const exists = favorites.find(
@@ -11,13 +49,18 @@ export function FavoriteProvider({ children }) {
     )
 
     if (!exists) {
-      setFavorites([...favorites, product])
+      setFavorites([
+        ...favorites,
+        product
+      ])
     }
   }
 
   const removeFromFavorites = id => {
     setFavorites(
-      favorites.filter(item => item.id !== id)
+      favorites.filter(
+        item => item.id !== id
+      )
     )
   }
 

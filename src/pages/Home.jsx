@@ -1,11 +1,14 @@
 import { Link } from 'react-router-dom'
 import { FaTruck, FaStar, FaArrowRight } from 'react-icons/fa'
 import ProductCard from '../components/ProductCard'
-import products from '../data/products'
 import HeroSlider from '../components/HeroSlider'
+import useProducts from '../hooks/useProducts'
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
    
 
 export default function Home() {
+    const { products, loading, error } = useProducts()
+
     return (
         <main className="bg-cream">
             <HeroSlider />
@@ -118,11 +121,21 @@ export default function Home() {
                 </h2>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {loading && (
+                        <div className="col-span-full text-center text-gray-500">
+                            Загрузка товаров...
+                        </div>
+                    )}
 
-                    {products.slice(0, 3).map(product => (
+                    {error && (
+                        <div className="col-span-full text-center text-red-500">
+                            {error}
+                        </div>
+                    )}
+
+                    {!loading && !error && products.slice(0, 3).map(product => (
                         <ProductCard key={product.id} product={product} />
                     ))}
-
                 </div>
 
             </section>
@@ -143,11 +156,20 @@ export default function Home() {
                     </div>
 
                     <div>
-                        <iframe
-                            title="map"
-                            src="https://maps.google.com/maps?q=Bishkek&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                        <MapContainer
+                            center={[42.87422117916225, 74.59778561522801]}
+                            zoom={13}
+                            scrollWheelZoom={false}
                             className="w-full h-72 sm:h-[350px] rounded-3xl border border-accent-200"
-                        />
+                        >
+                            <TileLayer
+                                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                            />
+                            <Marker position={[42.87422117916225, 74.59778561522801]}>
+                                <Popup>Fleur, Бишкек</Popup>
+                            </Marker>
+                        </MapContainer>
                     </div>
                 </div>
             </section>

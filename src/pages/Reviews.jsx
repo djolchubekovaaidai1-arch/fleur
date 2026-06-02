@@ -57,47 +57,80 @@ const Reviews = () => {
   const [name, setName] = useState('')
   const [text, setText] = useState('')
   const [rating, setRating] = useState(5)
+  const [isLoaded, setIsLoaded] = useState(false)
 
+  // Загрузка отзывов при монтировании
   useEffect(() => {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY)
-      if (raw) {
-        const parsed = JSON.parse(raw)
-        if (Array.isArray(parsed)) {
-          // Merge stored reviews with initialSamples so owner's reviews remain present
-          const merged = [...parsed]
-          initialSamples.forEach((s) => {
-            const exists = parsed.some((p) => p.text === s.text && p.author === s.author)
-            if (!exists) merged.push(s)
-          })
-          if (merged.length > 0) {
+    const loadReviews = () => {
+      try {
+        const stored = localStorage.getItem(STORAGE_KEY)
+        console.log('Raw localStorage data:', stored)
+        
+        if (stored) {
+          const parsed = JSON.parse(stored)
+          console.log('Parsed reviews:', parsed)
+          
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            // Добавляем initialSamples если их еще нет
+            const merged = [...parsed]
+            initialSamples.forEach((sample) => {
+              const exists = parsed.some((r) => r.text === sample.text && r.author === sample.author)
+              if (!exists) {
+                merged.push(sample)
+              }
+            })
             setReviews(merged)
+            setIsLoaded(true)
             return
           }
         }
+        
+        // Если localStorage пусто, используем initialSamples
+        console.log('Using initial samples')
+        setReviews(initialSamples)
+        setIsLoaded(true)
+      } catch (e) {
+        console.error('Error loading reviews:', e)
+        setReviews(initialSamples)
+        setIsLoaded(true)
       }
-    } catch (e) {
-      // ignore parse errors
     }
-    setReviews(initialSamples)
+    
+    loadReviews()
   }, [])
 
+  // Сохранение отзывов в localStorage при каждом изменении
   useEffect(() => {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(reviews))
-    } catch (e) {
-      // ignore
+    if (isLoaded) {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(reviews))
+        console.log('Saved to localStorage:', reviews)
+      } catch (e) {
+        console.error('Error saving reviews:', e)
+      }
     }
-  }, [reviews])
+  }, [reviews, isLoaded])
+
 
   const handleSubmit = (e) => {
     e.preventDefault()
     if (!text.trim()) return
-    const newReview = { rating: Number(rating) || 5, text: text.trim(), author: name.trim() || 'Аноним' }
-    setReviews((s) => [newReview, ...s])
+
+    const newReview = {
+      rating: Number(rating) || 5,
+      text: text.trim(),
+      author: name.trim() || 'Аноним'
+    }
+
+    // Добавляем новый отзыв в начало списка
+    setReviews((prevReviews) => [newReview, ...prevReviews])
+    
+    // Очищаем форму
     setName('')
     setText('')
     setRating(5)
+    
+    console.log('Review added:', newReview)
   }
 
   return (

@@ -40,7 +40,7 @@ export default function Navbar() {
   ]
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-accent-200">
+    <header className="sticky top-0 z-[9999] bg-white/95 backdrop-blur-md shadow-sm border-b border-accent-200">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-4 md:py-0">
         <NavLink
           to="/"

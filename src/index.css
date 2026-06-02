@@ -74,3 +74,19 @@ button {
   }
 
 }
+.similar-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.similar-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.similar-scroll::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: #b7c8b0;
+}
+
+.similar-scroll {
+  scroll-behavior: smooth;
+}

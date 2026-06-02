@@ -5,7 +5,7 @@ const Delivery = () => {
     <section className="relative min-h-screen py-16">
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="mb-12 max-w-3xl">
-          <h1 className="text-5xl md:text-6xl font-thin uppercase tracking-[0.3em] text-[#3f1d27]">
+          <h1 className="text-[30px] font-thin uppercase tracking-[0.3em] text-[#3f1d27] leading-[50px]">
             доставка <span className="font-semibold">и оплата</span>
           </h1>
           <div className="mt-6 flex items-center gap-4 text-[#4a7c59]">

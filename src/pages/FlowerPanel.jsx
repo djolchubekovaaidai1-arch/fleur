@@ -17,7 +17,7 @@ import {
 
 export default function FlowerPanel() {
   const [isAdmin, setIsAdmin] = useState(() => {
-    return localStorage.getItem('isAdmin') === 'true'
+    return sessionStorage.getItem('isAdmin') === 'true'
   })
   const [password, setPassword] = useState('')
   const [productsList, setProductsList] = useState([])
@@ -35,9 +35,9 @@ export default function FlowerPanel() {
     image: ''
   })
 
-  // Сохраняем isAdmin в localStorage при изменении
+  // Сохраняем isAdmin в sessionStorage при изменении
   useEffect(() => {
-    localStorage.setItem('isAdmin', isAdmin)
+    sessionStorage.setItem('isAdmin', isAdmin)
   }, [isAdmin])
 
   useEffect(() => {
@@ -237,6 +237,7 @@ export default function FlowerPanel() {
           <button
             onClick={() => {
               setIsAdmin(false)
+              sessionStorage.removeItem('isAdmin')
               setSidebarOpen(false)
             }}
             className="w-full text-left px-4 py-2 text-xs text-accent hover:bg-accent-50 rounded-lg transition flex items-center gap-2"
